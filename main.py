@@ -8,7 +8,7 @@ class Window:
     def __init__(self):
         self.A = []
         self.root = Tk()
-        self.root.title('Black Jack [21]')
+        self.root.title('TicTacToe')
         self.root.geometry('330x330')
         self.root.resizable(False, False)
         self.root.attributes('-topmost', True)
