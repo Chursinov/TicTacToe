@@ -6,9 +6,9 @@ from random import randint
 
 class Window:
     def __init__(self):
-        self.A = [[0] * 3 for x in range(3)]
+        self.A = [[0] * 3 for _ in range(3)]
         self.root = Tk()
-        self.root.title('Black Jack [21]')
+        self.root.title('TicTacToe')
         self.root.geometry('330x370')
         self.root.resizable(False, False)
         self.root.attributes('-topmost', True)
@@ -54,42 +54,123 @@ class Window:
 
     def tap(self, number):
         if number == 1:
-            self.A[0][0] = 'X'
-            self.kv1.config(image=self.X)
+            if self.A[0][0] != 'O':
+                self.A[0][0] = 'X'
+                self.kv1.config(image=self.X)
+            else:
+                pass
         if number == 2:
-            self.A[0][1] = 'X'
-            self.kv2.config(image=self.X)
-            self.check()
+            if self.A[0][1] != 'O':
+                self.A[0][1] = 'X'
+                self.kv2.config(image=self.X)
+            else:
+                pass
         if number == 3:
-            self.A[0][2] = 'X'
-            self.kv3.config(image=self.X)
+            if self.A[0][2] != 'O':
+                self.A[0][2] = 'X'
+                self.kv3.config(image=self.X)
+            else:
+                pass
         if number == 4:
-            self.A[1][0] = 'X'
-            self.kv4.config(image=self.X)
+            if self.A[1][0] != 'O':
+                self.A[1][0] = 'X'
+                self.kv4.config(image=self.X)
+            else:
+                pass
         if number == 5:
-            self.A[1][1] = 'X'
-            self.kv5.config(image=self.X)
+            if self.A[1][1] != 'O':
+                self.A[1][1] = 'X'
+                self.kv5.config(image=self.X)
+            else:
+                pass
         if number == 6:
-            self.A[1][2] = 'X'
-            self.kv6.config(image=self.X)
+            if self.A[1][2] != 'O':
+                self.A[1][2] = 'X'
+                self.kv6.config(image=self.X)
+            else:
+                pass
         if number == 7:
-            self.A[2][0] = 'X'
-            self.kv7.config(image=self.X)
+            if self.A[2][0] != 'O':
+                self.A[2][0] = 'X'
+                self.kv7.config(image=self.X)
+            else:
+                pass
         if number == 8:
-            self.A[2][1] = 'X'
-            self.kv8.config(image=self.X)
+            if self.A[2][1] != 'O':
+                self.A[2][1] = 'X'
+                self.kv8.config(image=self.X)
+            else:
+                pass
         if number == 9:
-            self.A[2][2] = 'X'
-            self.kv9.config(image=self.X)
+            if self.A[2][2] != 'O':
+                self.A[2][2] = 'X'
+                self.kv9.config(image=self.X)
+            else:
+                pass
         self.check()
         self.ai()
 
-        print('\n' * 6)
+        print('\n' * 4)
         for i in range(len(self.A)):
             print(f'{self.A[i][0]}{self.A[i][1]}{self.A[i][2]}')
 
     def ai(self):
-        pass
+        choose = randint(1, 9)
+        print(choose)
+        if choose == 1:
+            if self.A[0][0] != 'X':
+                self.A[0][0] = 'O'
+                self.kv1.config(image=self.O)
+            else:
+                pass
+        if choose == 2:
+            if self.A[0][1] != 'X':
+                self.A[0][1] = 'O'
+                self.kv2.config(image=self.O)
+            else:
+                pass
+        if choose == 3:
+            if self.A[0][2] != 'X':
+                self.A[0][2] = 'O'
+                self.kv3.config(image=self.O)
+            else:
+                pass
+        if choose == 4:
+            if self.A[1][0] != 'X':
+                self.A[1][0] = 'O'
+                self.kv4.config(image=self.O)
+            else:
+                pass
+        if choose == 5:
+            if self.A[1][1] != 'X':
+                self.A[1][1] = 'O'
+                self.kv5.config(image=self.O)
+            else:
+                pass
+        if choose == 6:
+            if self.A[1][2] != 'X':
+                self.A[1][2] = 'O'
+                self.kv6.config(image=self.O)
+            else:
+                pass
+        if choose == 7:
+            if self.A[2][0] != 'X':
+                self.A[2][0] = 'O'
+                self.kv7.config(image=self.O)
+            else:
+                pass
+        if choose == 8:
+            if self.A[2][1] != 'X':
+                self.A[2][1] = 'O'
+                self.kv8.config(image=self.O)
+            else:
+                pass
+        if choose == 9:
+            if self.A[2][2] != 'X':
+                self.A[2][2] = 'O'
+                self.kv9.config(image=self.O)
+            else:
+                pass
 
     def check(self):
         if self.A[0][0] == self.A[1][1] == self.A[2][2]:
