@@ -55,17 +55,18 @@ class Window:
     def tap(self, number):
         if self.A[number] != 'O' and self.A[number] != 'X':
             self.A[number] = 'X'
+            exec(f'self.kv{number}.config(image=self.X)')
             self.check()
             self.ai()
         else:
             pass
-        print(f'{self.A[0]}{self.A[1]}{self.A[2]}\n{self.A[3]}{self.A[4]}{self.A[5]}\n{self.A[6]}{self.A[7]}{self.A[8]}')
 
     def ai(self):
         try:
             choose = randint(0, 8)
             if self.A[choose] != 'O' and self.A[choose] != 'X':
                 self.A[choose] = 'O'
+                exec(f'self.kv{choose}.config(image=self.O)')
                 self.check()
             else:
                 self.ai()
