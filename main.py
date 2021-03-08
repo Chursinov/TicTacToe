@@ -6,9 +6,9 @@ from random import randint
 
 class Window:
     def __init__(self):
-        self.A = ['0' * 9]
+        self.A = []
         self.root = Tk()
-        self.root.title('TicTacToe')
+        self.root.title('Black Jack [21]')
         self.root.geometry('330x330')
         self.root.resizable(False, False)
         self.root.attributes('-topmost', True)
@@ -30,7 +30,7 @@ class Window:
         self.root.mainloop()
 
     def start(self):
-        self.A = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.A = [0, 1, 2, 3, 4, 5, 6, 7, 8]
         self.status.place_forget()
         self.end_button.place_forget()
         self.kv0.place(x=0, y=0, width=110, height=110)
@@ -62,12 +62,15 @@ class Window:
         print(f'{self.A[0]}{self.A[1]}{self.A[2]}\n{self.A[3]}{self.A[4]}{self.A[5]}\n{self.A[6]}{self.A[7]}{self.A[8]}')
 
     def ai(self):
-        choose = randint(0, 8)
-        if self.A[choose] != 'X':
-            self.A[choose] = 'O'
-        else:
-            pass
-        self.check()
+        try:
+            choose = randint(0, 8)
+            if self.A[choose] != 'O' and self.A[choose] != 'X':
+                self.A[choose] = 'O'
+                self.check()
+            else:
+                self.ai()
+        except RecursionError:
+            self.end('draw')
 
     def check(self):
         if self.A[0] == self.A[4] == self.A[8]:
@@ -129,7 +132,7 @@ class Window:
         self.kv6.place_forget()
         self.kv7.place_forget()
         self.kv8.place_forget()
-        self.status.place(x=0, y=20, width=330, height=370)
+        self.status.place(x=0, y=0, width=330, height=330)
         self.end_button.place(x=0, y=220, width=330)
 
 
